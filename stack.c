@@ -29,12 +29,12 @@ void stack_push(stack_T* s, stack_Item e) {
         new->item = e;
         new->next = *s;
         (*s) = new;
-    }    
+    }
 }
 
 stack_Item stack_pop(stack_T* s) {
     stack_Item item = NULL;
-    stack_T top;
+    stack_T top = NULL;
 
     if (!stack_empty(*s)) {
         item = (*s)->item;
@@ -63,10 +63,10 @@ int main(int argc, char** argv) {
     
     stack_T stack = NULL;
 
-    long array[] = {2, 3, 1, 4, 9, 1}; 
+    long array[] = {2, 3, 1, 4, 9, 1, 7, 2}; 
     int size = len(array, long);
 
-    for (int i = 0 ; i <  size ; ++i) {
+    for (int i = 0 ; i < size ; ++i) {
         stack_push(&stack, (stack_Item) array[i]);
         printf(" push: %ld\n", array[i]);
     }
